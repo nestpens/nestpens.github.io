@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NestPens</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 text-gray-800 font-sans leading-relaxed">
+    <header class="bg-white shadow-md py-4 px-6 fixed w-full top-0 z-10">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="/" class="text-2xl font-bold text-gray-900">NestPens</a>
+        <nav>
+          <a
+            href="#home"
+            class="ml-6 text-gray-700 font-medium hover:text-gray-900 hover:underline"
+            >Home</a
+          >
+          <a
+            href="#technology"
+            class="ml-6 text-gray-700 font-medium hover:text-gray-900 hover:underline"
+            >Technology</a
+          >
+          <a
+            href="#culture"
+            class="ml-6 text-gray-700 font-medium hover:text-gray-900 hover:underline"
+            >Culture</a
+          >
+          <a
+            href="#science"
+            class="ml-6 text-gray-700 font-medium hover:text-gray-900 hover:underline"
+            >Science</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <section class="mt-20 py-8 bg-white max-w-7xl mx-auto px-6">
+      <div class="flex gap-8 items-center flex-col md:flex-row">
+        <img
+          src="https://i.ibb.co.com/Qj7rXDcD/bold-men-s-underwear.jpg"
+          alt="Featured Post"
+          class="w-full md:w-1/2 h-64 object-cover rounded-lg"
+        />
+        <div class="w-full md:w-1/2">
+          <h2 id="featured-title" class="text-3xl font-bold mb-4">
+            Welcome to NestPens
+          </h2>
+          <p id="featured-excerpt" class="text-gray-600 mb-4">
+            Discover insightful articles on technology, culture, and science.
+            Dive into our featured story to explore the latest trends and ideas
+            shaping the world.
+          </p>
+          <a
+            href="#"
+            id="featured-link"
+            class="text-gray-900 font-medium hover:underline"
+            >Read More</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-8">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        id="post-grid"
+      ></div>
+    </section>
+
+
+    <script>
+      // Mock data for blog posts
+      const posts = [
+        {
+          id: 1,
+          title: "Confidence Starts Underneath: Why Bold Underwear Matters",
+          excerpt:
+            "Our curated selection of bold men's underwear is designed for those who value comfort, innovation, and unapologetic self-expression.",
+          image: "https://i.ibb.co.com/Qj7rXDcD/bold-men-s-underwear.jpg",
+          date: "September 10, 2025",
+          category: "Store",
+          url: "/bold-men-s-underwear.html",
+        },
+      ];
+
+      // Dynamic content controller
+      function loadPosts() {
+        const postGrid = document.getElementById("post-grid");
+        postGrid.innerHTML = ""; // Clear existing content
+
+        posts.forEach((post) => {
+          const postCard = document.createElement("div");
+          postCard.className =
+            "bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform";
+          postCard.innerHTML = `
+                    <img src="${post.image}" alt="${post.title}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">
+                            <a href="${post.url}" class="text-gray-900 hover:underline">${post.title}</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">${post.excerpt}</p>
+                        <div class="text-sm text-gray-500">${post.date} • ${post.category}</div>
+                    </div>
+                `;
+          postGrid.appendChild(postCard);
+        });
+      }
+
+      // Initialize the page
+      document.addEventListener("DOMContentLoaded", () => {
+        loadPosts();
+      });
+    </script>
+    <footer class="bg-white shadow-md py-6 px-6 mt-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="text-gray-900 font-bold text-lg mb-4 md:mb-0">NestPens</div>
+            <nav class="flex flex-wrap justify-center md:justify-end">
+                <a href="#home" class="mx-4 text-gray-700 font-medium hover:text-gray-900 hover:underline">Home</a>
+                <a href="#technology" class="mx-4 text-gray-700 font-medium hover:text-gray-900 hover:underline">Technology</a>
+                <a href="#culture" class="mx-4 text-gray-700 font-medium hover:text-gray-900 hover:underline">Culture</a>
+                <a href="#science" class="mx-4 text-gray-700 font-medium hover:text-gray-900 hover:underline">Science</a>
+            </nav>
+        </div>
+        <div class="max-w-7xl mx-auto mt-4 text-center text-gray-500 text-sm">
+            &copy; 2025 NestPens. All rights reserved.
+        </div>
+    </footer>
+  </body>
+</html>
